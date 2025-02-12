@@ -1,0 +1,506 @@
+/* General Reset */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Cover Photo */
+/* Cover photo container */
+.cover-photo {
+    position: relative;
+    height: 55vmin;
+    width: 100%;
+    background: white;
+    display: flex;
+    background-image: url("image-3@2x.jpg");
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1.5s ease-in-out;
+    overflow: hidden;
+    /* Ensure content stays within bounds */
+    border-radius: 10px;
+    /* Optional rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for elevation */
+}
+
+/* Cover picture styling */
+.cover-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hover effect for the cover photo */
+.cover-photo:hover img {
+    transform: scale(1.05);
+    /* Slight zoom-in effect */
+    opacity: 0.9;
+    /* Slight dimming */
+}
+
+/* Upload label container */
+.upload-container1 {
+    position: absolute;
+    bottom: 10%;
+    /* Positioned slightly above the bottom edge */
+    right: 5%;
+    /* Positioned near the right edge */
+    display: none;
+}
+
+/* Upload label styling */
+.upload-label {
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Semi-transparent black */
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the upload label */
+.upload-label:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Darker background on hover */
+}
+
+/* Show upload label on hover */
+.cover-photo:hover .upload-container1 {
+    display: block;
+}
+
+/* Hide file input */
+#cover_picture {
+    display: none;
+}
+
+/* Fade-in animation for the cover photo */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Profile photo container */
+.profile-photo {
+    position: absolute;
+    margin-top: -5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 42vmin;
+    width: 42vmin;
+    border: 5px solid white;
+    border-radius: 50%;
+    background-image: url("Default_pfp.jpg");
+    background-size: cover;
+    background-color: aquamarine;
+    display: flex;
+    /* Center children */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Ensure the image stays within the circle */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Soft shadow for elevation */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth hover effects */
+}
+
+/* Image inside the profile-photo container */
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    /* Ensure image is circular */
+}
+
+/* Hover effect for the profile-photo container */
+.profile-photo:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    /* Slight zoom effect */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    /* Deeper shadow */
+}
+
+/* Upload label container */
+.upload-container2 {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    /* Hidden by default */
+}
+
+/* Upload label styling */
+.upload-label {
+    background-color: #007bff;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the upload label */
+.upload-label:hover {
+    background-color: #0056b3;
+}
+
+/* Show upload label on hover */
+.profile-photo:hover .upload-container2 {
+    display: block;
+}
+
+/* Hide the file input */
+#profile_picture {
+    display: none;
+}
+
+
+.name {
+    padding-top: 7%;
+    height: 100%;
+    /* Ensure the height of the div is defined */
+    width: 100%;
+    /* Optional, based on your requirements */
+    margin: 0;
+    /* Remove unnecessary margin */
+    display: flex;
+    /* Enable Flexbox */
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    /* Ensures multi-line text stays centered */
+}
+
+.ae-buton {
+    display: flex;
+    /* Enables Flexbox */
+    gap: 10%;
+    /* Spacing between buttons */
+    justify-content: center;
+    /* Centers buttons horizontally */
+    align-items: center;
+    /* Centers buttons vertically (if needed) */
+    margin: 0;
+    /* Remove unnecessary margins */
+    padding: 20px;
+    /* Optional: Adds padding around the buttons */
+}
+
+button {
+    background-color: #1877F2;
+    color: #FFFFFF;
+    border: none;
+    padding: 6px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.2) rotate(2deg);
+    /* Enlarges and slightly rotates the button */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    /* Enhanced shadow */
+    background-color: #145DB2;
+    /* Slightly darker blue on hover */
+}
+
+button:active {
+    transform: scale(1) rotate(0deg);
+    /* Resets on click */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    /* Smaller shadow */
+}
+
+/* Dividers */
+.border1 {
+    width: 100%;
+    height: 3px;
+    margin: 20px auto;
+    background-color: white;
+}
+
+.border2,
+.border3,
+.border4 {
+    width: 100%;
+    height: 3px;
+    margin-bottom: 20px auto;
+    background-color: rgb(169, 160, 160);
+}
+
+/* Details Section */
+#details {
+    width: 30vmin;
+    font-size: 1.3rem;
+    text-align: center;
+    font-weight: bold;
+    margin-left: 15%;
+    padding: 5px 8px;
+    color: #555;
+    border: solid white;
+}
+
+/* Cards */
+.persional-info,
+.bio,
+.ssc,
+.hsc,
+.honours {
+    margin: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.persional-info:hover,
+.bio:hover,
+.ssc:hover,
+.hsc:hover,
+.honours:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Sub-Headers */
+.ssc-top,
+.hsc-top,
+.bsc-top {
+    width: 10vmin;
+    font-size: 1.2rem;
+    border-bottom: 3px solid rgb(169, 160, 160);
+}
+
+/* Personal Info Text */
+.pi {
+    padding: 5px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.pi b {
+    color: #333;
+}
+
+.bio b {
+    font-size: 1.1rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.8);
+    }
+
+    60% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.log-out {
+    display: flex;
+    /* Use flexbox */
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    height: 15vh;
+    /* Full viewport height */
+    background-color: #f9f9f9;
+    /* Light background for contrast */
+}
+
+.logout-button {
+    background-color: #ff4d4d;
+    /* Red background */
+    color: white;
+    /* White text */
+    border: none;
+    /* Remove border */
+    padding: 10px 20px;
+    /* Add padding */
+    font-size: 16px;
+    /* Text size */
+    font-weight: bold;
+    /* Bold text */
+    border-radius: 8px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    transition: all 0.3s ease;
+    /* Smooth transition for effects */
+}
+
+/* Hover effect */
+.logout-button:hover {
+    background-color: #ff6666;
+    /* Lighter red on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    /* Deeper shadow */
+    transform: translateY(-3px);
+    /* Slight upward movement */
+}
+
+/* Active effect */
+.logout-button:active {
+    background-color: #e60000;
+    /* Darker red on click */
+    transform: translateY(1px);
+    /* Slight downward movement */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* Reduced shadow */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+
+    /* Tablet */
+    .cover-photo {
+        height: 35vmin;
+    }
+
+    .name {
+        padding-top: 8%;
+    }
+
+    .profile-photo {
+        height: 35vmin;
+        width: 35vmin;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    /* Small Tablet and Large Phones */
+    .cover-photo {
+        height: 30vmin;
+    }
+
+
+
+    .profile-photo {
+        height: 30vmin;
+        width: 30vmin;
+    }
+
+    .name {
+        font-size: 1.1rem;
+        padding-top: 10%;
+    }
+
+    .ae-buton {
+        gap: 5%;
+    }
+
+    button {
+        font-size: 1.2rem;
+        padding: 5px 10px;
+    }
+
+    .persional-info,
+    .bio,
+    .ssc,
+    .hsc,
+    .honours {
+        padding: 15px;
+    }
+}
+
+#details {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 480px) {
+
+    /* Mobile */
+    .cover-photo {
+        height: 40vmin;
+    }
+
+    .profile-photo {
+        height: 40vmin;
+        width: 40vmin;
+    }
+
+    .name {
+        font-size: .8rem;
+        padding-top: 18%;
+    }
+
+    .ae-buton {
+        gap: 10px;
+    }
+
+    button {
+        font-size: .8rem;
+        padding: 5px 8px;
+    }
+
+    #details {
+        font-size: .7rem;
+        margin-left: 5%;
+        padding: 5px;
+    }
+
+    .persional-info,
+    .bio,
+    .ssc,
+    .hsc,
+    .honours {
+        padding: 10px;
+        font-size: .2rem;
+    }
+}

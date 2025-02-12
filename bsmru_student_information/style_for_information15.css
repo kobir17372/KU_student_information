@@ -1,0 +1,1103 @@
+/* Global Reset */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.body-section {
+    width: 100%;
+}
+
+.nav-section {
+    position: fixed;
+    width: 100%;
+}
+
+.scroll-watcher {
+    height: 5px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: rgb(248, 5, 5);
+    width: 100%;
+    scale: 0 1;
+    transform-origin: left;
+
+    animation: scroll-watcher linear;
+    animation-timeline: scroll();
+}
+
+@keyframes scroll-watcher {
+    to {
+        scale: 1 1;
+    }
+}
+
+.logo {
+    height: 16vmin;
+    width: 14vmin;
+    padding-right: 5vmin;
+    background-image: url("logo-light.png");
+    background-size: cover;
+}
+
+.head-text {
+    height: 16vmin;
+    width: 100%;
+    display: flex;
+    background-color: #000d33;
+    color: #ffb606;
+}
+
+.name-head {
+    margin-top: 2vmin;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.name-head h1 {
+    margin-bottom: -3vmin;
+}
+
+
+/* Menu Icon */
+.menu-icon {
+    margin-top: 13vmin;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1002;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.menu-icon:hover {
+    color: #ddd;
+}
+
+/* Sidebar */
+.sidebar {
+    margin-top: 22vmin;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    /* Initially Hidden */
+    width: 250px;
+    height: 100%;
+    background-color: #2c3e50;
+    color: white;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.3);
+    transition: left 0.4s ease-in-out;
+    padding-top: 60px;
+    z-index: 1003;
+    /* Ensure it's above other elements */
+}
+
+/* Show Sidebar */
+.sidebar.open {
+    left: 0;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.close-btn:hover {
+    color: #1abc9c;
+}
+
+/* Sidebar Links */
+.sidebar a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    transition: background 0.3s ease-in-out;
+}
+
+.sidebar a:hover {
+    background-color: #1abc9c;
+}
+
+/* Overlay Effect */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 1001;
+    /* Below Sidebar, but above content */
+}
+
+.overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+#home {
+    color: white;
+}
+
+#home:hover {
+    border-bottom: 3px solid #ffb606;
+    transition: .3s;
+}
+
+.nav-menu {
+    position: fixed;
+    height: 8vmin;
+    width: 100%;
+    background-color: #002147;
+    border-bottom: 1px solid #ffb606;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav-option {
+    width: 100%;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 5%;
+}
+
+.search-bar {
+    width: 60vmin;
+    display: flex;
+    justify-content: center;
+}
+
+.search-icon {
+    margin-top: 1vmin;
+    width: 5dvb;
+    background-color: #ffb606;
+    border-top-right-radius: 0.2rem;
+    border-bottom-right-radius: 0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+#search-place {
+    margin-top: 1vmin;
+    border: none;
+    width: 40vmin;
+    height: 4vmin;
+}
+
+select {
+    margin-top: 1vmin;
+    border: none;
+    height: 4vmin;
+    border-top-left-radius: 0.2rem;
+    border-bottom-left-radius: 0.2rem;
+}
+
+/* Add a glowing animation for the search input and button */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #f20501;
+    }
+
+    50% {
+        box-shadow: 0 0 20px #f23131;
+    }
+
+    100% {
+        box-shadow: 0 0 5px #800202;
+    }
+}
+
+#search-place {
+    padding-left: 2vmin;
+}
+
+#search-place:focus,
+.search-icon:hover {
+    animation: glow 1s infinite alternate;
+}
+
+.search-icon:hover {
+    transform: scale(1.1);
+    /* Slight zoom effect on hover */
+    cursor: pointer;
+}
+
+select:focus {
+    outline: none;
+    animation: glow 1s infinite alternate;
+}
+
+a {
+    text-decoration: none;
+}
+
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown {
+    font-size: .8rem;
+    background-color: #34495e;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-header {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    background-color: #2c3e50;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.dropdown-header:hover {
+    background-color: #1abc9c;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 150px;
+    background-color: #2c3e50;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 10;
+}
+
+.dropdown-container:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Dropdown Links */
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #1abc9c;
+}
+
+/* Login Panel - Flexbox for Layout */
+.log-in-panel {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    margin-right: 2rem;
+}
+
+/* General Button Styling */
+.button {
+    min-width: 70px;
+    height: 5px;
+    font-size: .8rem;
+    padding: 10px 15px;
+    background-color: #ffb606;
+    color: black;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effect */
+.button:hover {
+    background-color: greenyellow;
+    border: 2px solid white;
+    transform: scale(1.05);
+}
+
+/* Login Button */
+.log-in a {
+    color: black;
+}
+
+/* Register Button */
+.register a {
+    color: #000d33;
+}
+
+
+
+.nav-section {
+    border-bottom: 3px solid #ffb606;
+}
+
+body {
+    background-color: rgba(137, 143, 148, 0.452);
+    background: blur;
+}
+
+/* Profile Section */
+.container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Batch Div - Should Stay Behind */
+.batch {
+    margin-top: 25vmin;
+    height: 8vmin;
+    width: 100%;
+    display: flex;
+    background-color: rgb(216, 207, 207);
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 4px 6px 12px rgba(24, 0, 0, 0.989);
+    overflow: hidden;
+    position: relative;
+    animation: pulse 2s infinite ease-in-out !important;
+    z-index: -1;
+}
+
+
+
+.batch:hover {
+    cursor: pointer;
+    background-color: rgb(0, 27, 50);
+    color: #ffd700;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.profile {
+    height: 65vmin;
+    max-width: 300px;
+    min-width: 240px;
+    background-color: antiquewhite;
+    border-radius: 0.2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    overflow: hidden;
+    /* Prevent content overflow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth animation on hover */
+    flex-shrink: 0;
+    /* Prevent shrinking on smaller screens */
+}
+
+/* Hover Effect */
+.profile:hover {
+    transform: scale(1.05);
+    /* Slight zoom-in effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    /* Stronger shadow */
+}
+
+.profile-pic {
+    margin: 10px auto;
+    height: 180px;
+    width: 180px;
+    background-color: #f5f5f5;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border: 3px solid #4caf50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-pic img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.name {
+    font-size: .9rem;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #000d33;
+}
+
+.pi {
+    margin: 5px 10px;
+    text-align: left;
+    font-size: 0.85rem;
+    color: #000d33;
+    border-radius: 0.2rem;
+}
+
+
+
+
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.view-more-btn {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.view-more-btn a {
+    display: inline-block;
+    padding: 6px 12px;
+    /* Add padding for a button-like feel */
+    font-size: .7rem;
+    /* Slightly larger font size for visibility */
+    font-weight: bold;
+    /* Make the text bold */
+    color: black;
+    /* Button text color */
+    background-color: rgba(116, 116, 118, 0.283);
+    /* Button background color */
+    border-radius: 5px;
+    /* Rounded corners */
+    text-decoration: none;
+    /* Remove underline */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    /* Add shadow for a 3D effect */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    /* Smooth transitions */
+}
+
+/* Hover Animation: Bounce and Color Change */
+.view-more-btn a:hover {
+    background-color: #0ae40a7d;
+    /* Darker blue on hover */
+    transform: scale(1.1);
+    /* Slightly enlarge the button */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+    /* Enhance shadow on hover */
+}
+
+/* Add Keyframe Animation (Bounce effect) */
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Trigger bounce animation on hover */
+.view-more-btn a:hover {
+    animation: bounce 0.5s ease-in-out;
+}
+
+.all-name {
+    margin: 5%;
+    margin-top: 8%;
+    height: 20vmin;
+    width: 90%;
+    box-shadow: 2px 4px 1px rgba(0, 0, 0, 0.238);
+}
+
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .name-head h1 {
+        font-size: 1.7rem;
+    }
+
+    .menu-icon {
+        font-size: 1.5rem;
+    }
+
+    .nav-option {
+        width: 100%;
+        justify-content: center;
+        gap: 1vmin;
+    }
+
+    .nav-option a {
+        font-size: 0.9rem;
+        padding: 0.5vmin 0;
+    }
+
+    .sidebar {
+        width: 200px;
+    }
+
+
+    .search-bar {
+        width: 50%;
+        justify-content: center;
+        margin: 1vmin 0;
+    }
+
+    #home {
+        margin-left: 10vmin;
+    }
+
+    .log-in a {
+        font-size: .7rem;
+        padding: 10px 15px;
+        color: black;
+    }
+
+    .register a {
+        font-size: .7rem;
+        padding: 10px 15px;
+        color: #000d33;
+    }
+
+    .dropdown-menu a {
+        padding: 20px;
+
+    }
+}
+
+@media (max-width: 768px) {
+    .name-head h1 {
+        font-size: 1.4rem;
+    }
+
+    .menu-icon {
+        font-size: 1.3rem;
+        margin-left: -5px;
+        margin-right: 5px;
+    }
+
+    .search-bar {
+        width: 80%;
+        justify-content: center;
+        margin: 1vmin 0;
+    }
+
+    .search-icon {
+        margin-top: 1vmin;
+        width: 6dvb;
+        height: 4vmin;
+    }
+
+    #search-place {
+        margin-top: 1vmin;
+        border: none;
+        width: 30vmin;
+        height: 4vmin;
+    }
+
+    select {
+        height: 4vmin;
+    }
+
+    #home {
+        margin-left: 10vmin;
+    }
+
+    .log-in a {
+        font-size: .5rem;
+        padding: 7px 12px;
+        color: black;
+    }
+
+    .register a {
+        font-size: .5rem;
+        padding: 7px 12px;
+        color: #000d33;
+    }
+
+    .dropdown {
+        display: none;
+    }
+
+
+    .container {
+        flex-direction: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .profile {
+        width: auto;
+        height: 75vmin;
+        max-width: 300px;
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 520px) {
+    .name-head h1 {
+        font-size: 1.2rem;
+    }
+
+    #varsity-name {
+        font-size: .8rem;
+    }
+
+    .nav-option a {
+        font-size: 0.8rem;
+        padding: 0.3vmin;
+    }
+
+    .menu-icon {
+        font-size: .8rem;
+        margin-left: -4vmin;
+    }
+
+    #home {
+        display: none;
+    }
+
+    .search-bar {
+        width: 80%;
+        justify-content: center;
+        margin: 1vmin 0;
+    }
+
+    .search-icon {
+        margin-top: 1vmin;
+        width: 4dvb;
+        height: 4vmin;
+    }
+
+    #search-place {
+        margin-top: 1vmin;
+        border: none;
+        width: 25vmin;
+        height: 4vmin;
+    }
+
+    select {
+        height: 4vmin;
+        margin-left: 18vmin;
+    }
+
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .profile {
+        height: 85vmin;
+        max-width: 300px;
+        min-width: 200px;
+    }
+
+    .name {
+        font-size: .8rem;
+    }
+
+    .log-in a {
+        font-size: .4rem;
+        padding: 5px 5px;
+        color: black;
+    }
+
+    .register a {
+        font-size: .4rem;
+        padding: 5px 5px;
+        color: #000d33;
+    }
+
+    .pi {
+        font-size: .7rem;
+    }
+
+    .view-more-btn a {
+        font-size: .5rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .name-head h1 {
+        font-size: 1rem;
+    }
+
+    #varsity-name {
+        font-size: .6rem;
+    }
+
+    #home {
+        display: none;
+    }
+
+    .menu-icon {
+        margin-top: 10vmin;
+        font-size: .8rem;
+        margin-left: -4vmin;
+    }
+
+    .search-bar {
+        width: 70%;
+        justify-content: center;
+        margin: 1vmin 0;
+    }
+
+    .search-icon {
+        margin-top: 1vmin;
+        width: 3dvb;
+        height: 5vmin;
+    }
+
+    #search-place {
+        margin-top: 1vmin;
+        border: none;
+        width: 30vmin;
+        height: 5vmin;
+    }
+
+    select {
+        height: 5vmin;
+        margin-left: 18vmin;
+    }
+
+    .log-in a {
+        display: none;
+    }
+
+    .register {
+        display: none;
+    }
+
+    .nav-option a {
+        font-size: 0.8rem;
+        padding: 0.3vmin;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .profile {
+        height: 85vmin;
+        max-width: 300px;
+        min-width: 200px;
+    }
+
+    .name {
+        font-size: .8rem;
+    }
+
+    .pi {
+        font-size: .7rem;
+    }
+
+    .view-more-btn a {
+        font-size: .5rem;
+    }
+}
+
+
+
+/* Footer Top Section */
+.footer-top {
+    height: 8vmin;
+    width: 100%;
+    background: linear-gradient(to right, #00254e, #022242);
+    color: #ffb606;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3vmin;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-top: 3px solid #ffb606;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    color: #ffb606;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    padding: 0.5vmin 2vmin;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Hover Animation */
+.back-to-top:hover {
+    color: white;
+    transform: translateY(-3px);
+}
+
+
+
+/* Subtle Pulse Animation */
+@keyframes pulse {
+    0% {
+        box-shadow: 4px 4px 8px rgba(115, 5, 1, 0.742);
+    }
+
+    50% {
+        box-shadow: 4px 4px 4px rgba(56, 1, 1, 0.735);
+    }
+
+    100% {
+        box-shadow: 4px 4px 5px rgba(63, 0, 0, 0.676);
+    }
+}
+
+.footer-top:hover {
+    animation: pulse 1.5s infinite;
+}
+
+/* Footer */
+.footer {
+    background-color: #000d33;
+    color: white;
+    height: auto;
+    /* Changed to auto for responsiveness */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+    /* Added padding for better spacing */
+}
+
+/* Back to Top Panel */
+.footer-pannel1 {
+    background-color: #002147;
+    color: white;
+    font-size: 3vmin;
+    border-top: 3px solid #ffb606;
+    padding: 1.5vmin 0;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.footer-pannel1:hover {
+    background-color: #003580;
+}
+
+/* Footer Content Grid */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 3vmin;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Footer Sections */
+.footer-section {
+    margin-top: 8vmin;
+    flex: 1;
+    min-width: 220px;
+    margin-bottom: 2vmin;
+}
+
+/* Titles */
+.footer-section h3 {
+    font-size: 2.5vmin;
+    margin-bottom: 3vmin;
+    border-bottom: 2px solid #ffb606;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Links */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 1vmin 0;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #ffb606;
+    text-decoration: underline;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 1.5vmin;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 2.5vmin;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: #ffb606;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    margin-top: 2vmin;
+    font-size: 2vmin;
+    border-top: 1px solid #ffb606;
+    padding: 1.5vmin;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .footer-top {
+        height: 10vmin;
+        font-size: 3vmin;
+    }
+
+    .footer {
+        height: auto;
+    }
+
+    .footer-pannel1 {
+        font-size: 4vmin;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 5vmin;
+    }
+
+    .footer-section {
+        margin-top: 5vmin;
+        text-align: center;
+    }
+
+    .footer-section h3 {
+        font-size: 3.5vmin;
+    }
+
+    .footer-section ul li a {
+        font-size: 2.5vmin;
+    }
+
+    .social-icons a {
+        font-size: 3.5vmin;
+    }
+
+    .footer-bottom {
+        font-size: 2.5vmin;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-top {
+        height: 8vmin;
+        font-size: 3.5vmin;
+    }
+
+    .footer-pannel1 {
+        font-size: 5vmin;
+    }
+
+    .footer-section h3 {
+        font-size: 4vmin;
+    }
+
+    .footer-section ul li a {
+        font-size: 3vmin;
+    }
+
+    .social-icons a {
+        font-size: 4vmin;
+    }
+
+    .footer-bottom {
+        font-size: 3vmin;
+    }
+}
