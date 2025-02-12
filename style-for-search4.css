@@ -1,0 +1,103 @@
+.profile {
+  margin-top: 2vmin;
+  margin-bottom: 2vmin;
+  margin-left: 30%;
+  height: 70vmin;
+  width: 200px;
+  background-color: antiquewhite;
+  border-radius: 0.2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
+}
+
+.profile:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+
+
+/*-----search error-----*/
+/* Style the "No results found" message */
+.no-results {
+  height: 10vmin;
+  width: 100%;
+  margin-top: 2vmin;
+  margin-left: -30%;
+  text-align: center;
+  display: flex;
+  /* Enables Flexbox */
+  justify-content: center;
+  /* Centers horizontally */
+  align-items: center;
+  /* Centers vertically */
+  border-radius: 0.7rem;
+  background-color: rgba(0, 0, 0, 0.463);
+  font-size: 2rem;
+  color: #ff5733;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 800px) {
+  .no-results {
+    font-size: 1.8rem;
+  }
+
+  .profile {
+    margin-left: -10%;
+    height: 70vmin;
+  }
+}
+
+@media (max-width: 680px) {
+  .no-results {
+    font-size: 1.5rem;
+  }
+
+  .profile {
+    margin-left: -15%;
+    height: 70vmin;
+    width: 200px;
+  }
+}
+
+@media (max-width: 500px) {
+  .no-results {
+    font-size: 1.2rem;
+  }
+
+  .profile {
+    margin-left: -30%;
+    height: 82vmin;
+    width: 180px;
+  }
+}
+
+@media (max-width: 300px) {
+  .no-results {
+    font-size: 1rem;
+  }
+
+  .profile {
+    margin-left: -38%;
+    height: 95vmin;
+    width: 150px;
+  }
+}
